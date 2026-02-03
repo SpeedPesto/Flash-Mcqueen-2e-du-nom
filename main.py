@@ -48,6 +48,19 @@ def block():
     bot.loop.create_task(send())
     return "ok"
 
+@app.route("/tableau", methods=["POST"])
+def block():
+    data = request.json
+    msg = f"{data['player']} a posé {data['blocks']}"
+
+    async def send():
+        channel = await bot.fetch_channel(CHANNEL_ID)
+        await channel.send(msg)
+
+    # Utiliser le loop du bot
+    bot.loop.create_task(send())
+    return "ok"
+
 # /ninja
 @bot.tree.command(name="ninja", description="go")
 async def salut(interaction: discord.Interaction):
