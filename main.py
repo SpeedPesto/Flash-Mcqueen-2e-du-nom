@@ -51,7 +51,7 @@ def block():
 # /ninja
 @bot.tree.command(name="ninja", description="go")
 async def salut(interaction: discord.Interaction):
-    await interaction.response.send_message("goo")
+    await interaction.response.send_message("gooo")
 
 
 # --- Lance le bot ---
