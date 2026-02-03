@@ -25,7 +25,7 @@ def tableau():
     player = data.get("player", "Inconnu")
     blocks = data.get("blocks", [])
 
-    size = 5
+    size = 20
     lines = []
     for i in range(0, len(blocks), size):
         line = "".join(blocks[i:i + size])
