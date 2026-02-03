@@ -41,10 +41,11 @@ def block():
     msg = f"{data['player']} a posé {data['block']} en {data['pos']}"
 
     async def send():
-        channel = await bot.fetch_channel(CHANNEL_ID)  # fetch pour être sûr que le channel existe
+        channel = await bot.fetch_channel(CHANNEL_ID)
         await channel.send(msg)
 
-    loop.create_task(send())
+    # Utiliser le loop du bot
+    bot.loop.create_task(send())
     return "ok"
 
 # /ninja
