@@ -3,7 +3,7 @@ import threading
 
 app = Flask(__name__)
 bot_instance = None
-CHANNEL_ID = 1467235315872694495
+CHANNEL_ID = 1468358356866568387
 
 
 @app.route("/block", methods=["POST"])
