@@ -3,6 +3,9 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import os
 from tableau import setup_tableau
+from commands import setup_commands
+from music import setup_music
+from events import setup_events
 
 load_dotenv()
 
