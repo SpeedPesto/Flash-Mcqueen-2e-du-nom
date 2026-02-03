@@ -1,2 +1,6 @@
 discord.py
 Flask
+os
+random
+yt_dlp
+asyncio
