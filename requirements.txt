@@ -1,2 +1,5 @@
 discord.py
 Flask
+python-dotenv
+yt_dlp
+PyNaCl
