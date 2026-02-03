@@ -50,16 +50,28 @@ def block():
 
 @app.route("/tableau", methods=["POST"])
 def tableau():
-    data = request.json
-    msg = f"{data['player']} a posé {data['blocks']}"
+    data = request.get_json()
+
+    player = data.get("player", "Inconnu")
+    blocks = data.get("blocks", [])
+
+    size = 5  # largeur du tableau
+    lines = []
+
+    for i in range(0, len(blocks), size):
+        line = "".join(blocks[i:i+size])
+        lines.append(line)
+
+    tableau = "\n".join(lines)
+
+    msg = f"🎨 **Tableau de {player}**\n{tableau}"
 
     async def send():
         channel = await bot.fetch_channel(CHANNEL_ID)
         await channel.send(msg)
 
-    # Utiliser le loop du bot
     bot.loop.create_task(send())
-    return "ok"
+    return "ok", 200
 
 # /ninja
 @bot.tree.command(name="ninja", description="go")
