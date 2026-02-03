@@ -39,7 +39,12 @@ threading.Thread(target=run_flask).start()
 def block():
     data = request.json
     msg = f"{data['player']} a posé {data['block']} en {data['pos']}"
-    loop.create_task(bot.get_channel(CHANNEL_ID).send(msg))
+
+    async def send():
+        channel = await bot.fetch_channel(CHANNEL_ID)  # fetch pour être sûr que le channel existe
+        await channel.send(msg)
+
+    loop.create_task(send())
     return "ok"
 
 # /ninja
