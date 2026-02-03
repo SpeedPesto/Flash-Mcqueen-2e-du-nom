@@ -49,7 +49,7 @@ def block():
     return "ok"
 
 @app.route("/tableau", methods=["POST"])
-def block():
+def tableau():
     data = request.json
     msg = f"{data['player']} a posé {data['blocks']}"
 
