@@ -25,14 +25,14 @@ def tableau():
     player = data.get("player", "Inconnu")
     blocks = data.get("blocks", [])
 
-    size = 20
+    size = 15
     lines = []
     for i in range(0, len(blocks), size):
         line = "".join(blocks[i:i + size])
         lines.append(line)
 
     tableau_str = "\n".join(lines)
-    msg = f"🎨 **Tableau de {player}**\n```\n{tableau_str}\n```"
+    msg = f"🎨 **Nouveau tableau de {player}**\n```\n{tableau_str}\n```"
 
     async def send():
         channel = await bot_instance.fetch_channel(CHANNEL_ID)
