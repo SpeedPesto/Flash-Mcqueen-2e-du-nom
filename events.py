@@ -48,7 +48,8 @@ def setup_events(bot):
             await message.reply(assemblage)
 
         if any(mot in message.content.lower() for mot in cat_messages):
-            await message.channel.send("cat")
+            await message.delete()
+            return
 
         # "quoi" -> "feur"
         contenu = message.content.strip()
