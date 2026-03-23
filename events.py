@@ -23,6 +23,8 @@ sus_answers = [
     "t'es sur de ce mot là ?"
 ]
 
+cat_messages = ["to catch it!"]
+
 def setup_events(bot):
 
     @bot.event
@@ -44,6 +46,9 @@ def setup_events(bot):
             random_sus_message = random.choice(sus_answers)
             assemblage = f"{random_sus_gif}\n{random_sus_message}"
             await message.reply(assemblage)
+
+        if any(mot in message.content.lower() for mot in cat_messages):
+            await message.channel.send("cat")
 
         # "quoi" -> "feur"
         contenu = message.content.strip()
